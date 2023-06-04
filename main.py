@@ -2,11 +2,17 @@ from tkinter import *
 import os
 import subprocess
 
+def update_entry_content():
+    obter_texto()
+    root.after(1000, update_entry_content)  # Chame esta função novamente após 1 segundo (1000 ms)
+    
+
 def getPs(filtro=None):
     if filtro:
-        comando = f'ps -auf | grep {filtro}'  # Comando Bash que queremos executar
+        comando = f'ps -af -o pid,ppid,ni,%cpu,%mem,cmd | grep {filtro}'  # Comando Bash que queremos executar
+
     else:
-        comando = 'ps -auf'
+        comando = 'ps -af -o pid,ppid,ni,%cpu,%mem,cmd'
     print(comando)
     resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
     print(resultado)
@@ -121,5 +127,7 @@ entry_cpu.grid(row=5, column=0)
 
 button_cpu = Button(container3, text="CPU", command=chage_cpu)
 button_cpu.grid(row=5, column=1)
+
+update_entry_content()  # Inicialmente, chame a função para atualizar o conteúdo do Entry
 root.mainloop()
 
