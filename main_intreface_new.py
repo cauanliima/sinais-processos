@@ -82,28 +82,26 @@ def obter_texto():
 root = Tk()
 root.title("Gerenciador de Processos")
 largura = 1300  # Defina a largura desejada da janela
-altura = 700   # Defina a altura desejada da janela
+altura = 800   # Defina a altura desejada da janela
 root.geometry(f"{largura}x{altura}")# Define o tamanho da janela principal
 root.configure(background = "MIDNIGHTBLUE")
 root.resizable(width = True, height = True)
 
-# ===== Carregando imagens =====
-logo = PhotoImage(file = "logo.png")
 
 # ===== Widgets =====
-TopFrame = Frame(root, width = 1400, height = 60, bg = "MIDNIGHTBLUE", relief = "raise")
+TopFrame = Frame(root, width = 1400, height = 60, bg = "WHITE", relief = "raise")
 TopFrame.pack(side=TOP)
 
-LogoLabel = Label(TopFrame, image = logo, bg = "MIDNIGHTBLUE")
-LogoLabel.place(relx=0.5, rely=0.5, anchor=CENTER)
+LogoLabel = Label(TopFrame,text="GERENCIADOR DE PROCESSOS", font=100,  bg = "WHITE" )
+LogoLabel.place(relx=0.30, rely=0.5 )
 
-MiddleFrame = Frame(root, width = 1400, height = 500, bg = "MIDNIGHTBLUE", relief = "raise")	
+MiddleFrame = Frame(root, width = 1400, height = 400, bg = "MIDNIGHTBLUE", relief = "raise")	
 MiddleFrame.pack(side=TOP)
 
 label = Label(MiddleFrame, text=getPs(),justify="left")
 label.pack(side=TOP)
 
-BottomFrame = Frame(root, width = 1400, height = 300, bg = "WHITE", relief = "raise")
+BottomFrame = Frame(root, width = 1400, height = 200, bg = "WHITE", relief = "raise")
 BottomFrame.pack(side=BOTTOM)
 
 labelPID = Label(BottomFrame, text="PID")
@@ -146,7 +144,7 @@ alocaButton = Button(BottomFrame, text = "CHAGE CPU", width = 12, command=chage_
 alocaButton.place(relx = 0.4, rely=0.7)
 
 
-update_entry_content()  # Inicialmente, chame a função para atualizar o conteúdo do Entry
+# update_entry_content()  # Inicialmente, chame a função para atualizar o conteúdo do Entry
 
 root.mainloop()
 
