@@ -89,10 +89,10 @@ root.resizable(width = True, height = True)
 
 
 # ===== Widgets =====
-TopFrame = Frame(root, width = 1400, height = 60, bg = "WHITE", relief = "raise")
+TopFrame = Frame(root, width = 1400, height = 60, bg='gray', relief = "raise")
 TopFrame.pack(side=TOP)
 
-LogoLabel = Label(TopFrame,text="GERENCIADOR DE PROCESSOS", font=100,  bg = "WHITE" )
+LogoLabel = Label(TopFrame,text="GERENCIADOR DE PROCESSOS", foreground='MIDNIGHTBLUE', font=100, bg='gray')
 LogoLabel.place(relx=0.30, rely=0.5 )
 
 MiddleFrame = Frame(root, width = 1400, height = 400, bg = "MIDNIGHTBLUE", relief = "raise")	
@@ -101,46 +101,46 @@ MiddleFrame.pack(side=TOP)
 label = Label(MiddleFrame, text=getPs(),justify="left")
 label.pack(side=TOP)
 
-BottomFrame = Frame(root, width = 1400, height = 200, bg = "WHITE", relief = "raise")
+BottomFrame = Frame(root, width = 1400, height = 200, bg='gray', relief = "raise")
 BottomFrame.pack(side=BOTTOM)
 
-labelPID = Label(BottomFrame, text="PID")
+labelPID = Label(BottomFrame, text="PID",bg='gray', foreground='BLUE')
 labelPID.place(relx = 0.28,rely = 0.1)
 
-labelPrioNice = Label(BottomFrame, text="PRIORITY")
+labelPrioNice = Label(BottomFrame, text="PRIORITY",bg='gray', foreground='purple')
 labelPrioNice.place(relx = 0.255,rely = 0.4)
 
-labelCPU = Label(BottomFrame, text="CPU's")
+labelCPU = Label(BottomFrame, text="CPU's",bg='gray', foreground='purple')
 labelCPU.place(relx = 0.27,rely = 0.7)
 
 entry_PID = StringVar() 
-entry_filter = Entry(BottomFrame, width = 10, textvariable=entry_PID, justify = "center")
+entry_filter = Entry(BottomFrame, width = 12, textvariable=entry_PID, justify = "center")
 entry_filter.place(relx = 0.3, rely=0.1)
 
 entry_pri = StringVar() #Aqui comeca a funcionalidade do botao kill + entrada kill. A variavel nesse caso eh digitadoPID
-prioNiceEntry = Entry(BottomFrame, width = 10, textvariable=entry_pri, justify = "center")
+prioNiceEntry = Entry(BottomFrame, width = 12, textvariable=entry_pri, justify = "center")
 prioNiceEntry.place(relx = 0.3, rely=0.4)
 
 entry_cpu= StringVar() #Aqui comeca a funcionalidade do botao kill + entrada kill. A variavel nesse caso eh digitadoPID
-entry_chance_cpu = Entry(BottomFrame, width = 10, textvariable=entry_cpu, justify = "center")
+entry_chance_cpu = Entry(BottomFrame, width = 12, textvariable=entry_cpu, justify = "center")
 entry_chance_cpu.place(relx = 0.3, rely=0.7)
 
-killButton = Button(BottomFrame, text="KILL",  width = 12, command=kill_process, justify = "center")
+killButton = Button(BottomFrame, text="KILL", bg="MIDNIGHTBLUE", foreground='yellow', width = 12, command=kill_process, justify = "center")
 killButton.place(relx = 0.4, rely=0.1)
 
-stopButton = Button(BottomFrame, text = "STOP", width = 12, command=stop_process, justify = "center")
+stopButton = Button(BottomFrame, text = "STOP", bg="MIDNIGHTBLUE",  foreground='yellow', width = 12, command=stop_process, justify = "center")
 stopButton.place(relx = 0.5, rely=0.1)
 
-continueButton = Button(BottomFrame, text = "CONTINUE ", width = 12, command=cont_process, justify = "center")
+continueButton = Button(BottomFrame, text = "CONTINUE ", bg="MIDNIGHTBLUE", foreground='yellow', width = 12, command=cont_process, justify = "center")
 continueButton.place(relx = 0.6, rely=0.1)
 
-filterButton = Button(BottomFrame, text = "REFRESH", width = 12, command=obter_texto, justify = "center")
+filterButton = Button(BottomFrame, text = "REFRESH", bg="MIDNIGHTBLUE",  foreground='yellow', width = 12, command=obter_texto, justify = "center")
 filterButton.place(relx = 0.7, rely=0.1)
 
-prioButton = Button(BottomFrame, text = "PRIORITY", width = 12, command=chage_pri, justify = "center")
+prioButton = Button(BottomFrame, text = "PRIORITY", bg="purple", foreground='white', width = 12, command=chage_pri, justify = "center")
 prioButton.place(relx = 0.4, rely=0.4)
 
-alocaButton = Button(BottomFrame, text = "CHAGE CPU", width = 12, command=chage_cpu, justify = "center")
+alocaButton = Button(BottomFrame, text = "CHAGE CPU", bg="purple", foreground='white', width = 12, command=chage_cpu, justify = "center")
 alocaButton.place(relx = 0.4, rely=0.7)
 
 
