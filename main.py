@@ -23,7 +23,7 @@ def kill_process(PID=None):
 def stop_process(PID=None):
     PID = entry_PID.get()
     if PID:
-        comando = f'kill -SIGKILL {PID}'  # Comando Bash que queremos executar
+        comando = f'kill -19 {PID}'  # Comando Bash que queremos executar
         print(comando)
         resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
         print(resultado)
@@ -31,23 +31,25 @@ def stop_process(PID=None):
 def cont_process(PID=None):
     PID = entry_PID.get()
     if PID:
-        comando = f'kill -SIGKILL {PID}'  # Comando Bash que queremos executar
+        comando = f'kill -18 {PID}'  # Comando Bash que queremos executar
         print(comando)
         resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
         print(resultado)
         
 def chage_pri(PID=None):
     PID = entry_PID.get()
+    nice = entry_pri.get()
     if PID:
-        comando = f'kill -SIGKILL {PID}'  # Comando Bash que queremos executar
+        comando = f'renice -n {nice} {PID}'  # Comando Bash que queremos executar
         print(comando)
         resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
         print(resultado)
         
 def chage_cpu(PID=None):
     PID = entry_PID.get()
+    CPU = entry_cpu.get()
     if PID:
-        comando = f'kill -SIGKILL {PID}'  # Comando Bash que queremos executar
+        comando = f'taskset -cp {CPU} {PID}'  # Comando Bash que queremos executar
         print(comando)
         resultado = subprocess.run(comando, shell=True, capture_output=True, text=True)
         print(resultado)
